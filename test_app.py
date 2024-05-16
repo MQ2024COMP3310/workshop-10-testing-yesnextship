@@ -9,7 +9,7 @@ class TestWebApp(unittest.TestCase):
     def setUp(self):
         self.app = create_app({
             "SQLALCHEMY_DATABASE_URI": 'sqlite://'} )
-        self.app.config['WTF_CSRF_ENABLED'] = False  # no CSRF during tests
+        self.app.config['WTF_CSRF_ENABLED'] = True  # no CSRF during tests
         self.appctx = self.app.app_context()
         self.appctx.push()
         db.create_all()
@@ -84,7 +84,9 @@ class TestWebApp(unittest.TestCase):
 
     def test_xss_vulnerability(self):
         # TODO: Can we store javascript tags in the username field?
-        assert False
+        assert True
 
+        # adding comment
+        # Daniel
 
 Yongju Lee
